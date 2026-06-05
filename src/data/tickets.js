@@ -5,7 +5,7 @@ export const ticketsData = [
     codigo: 'TK-001',
     estado: 'Abierto',
     cantidad: 2,
-    imagen: '🔴'
+    imagen: '🟠'
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const ticketsData = [
     codigo: 'TK-003',
     estado: 'Abierto',
     cantidad: 3,
-    imagen: '🔴'
+    imagen: '🟠'
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const ticketsData = [
     codigo: 'TK-005',
     estado: 'Crítico',
     cantidad: 4,
-    imagen: '🟠'
+    imagen: '🔴'
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ export const ticketsData = [
     codigo: 'TK-008',
     estado: 'Abierto',
     cantidad: 3,
-    imagen: '🔴'
+    imagen: '🟠'
   },
   {
     id: 9,

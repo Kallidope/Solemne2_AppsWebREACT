@@ -1,6 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from "./pages/Home";
 import MenuNav from './components/MenuNav';
-import Home from './pages/Home';
+import Contacto from "./pages/Contacto";
+import Tickets from "./pages/Tickets";
+import Login from "./pages/Login";
+import Registro from "./pages/Registro";
 import './styles/main.scss';
 
 const App = () => {
@@ -27,12 +31,12 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tickets" element={<div>Página de Listado de Tickets</div>} />
+          <Route path="/tickets" element={<Tickets />} />
           <Route path="/tickets/:id" element={<div>Detalle del Ticket</div>} />
-          <Route path="/contacto" element={<div>Página de Contacto</div>} />
+          <Route path="/contacto" element={<Contacto />} />
           {/* Rutas extra para cumplir los enlaces del header */}
-          <Route path="/login" element={<div>Login</div>} />
-          <Route path="/registro" element={<div>Registro</div>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
         </Routes>
         
         <footer className="app-footer">
