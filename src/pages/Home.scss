@@ -1,0 +1,238 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.home {
+  background-color: $color-fondo;
+  min-height: calc(100vh - 200px);
+  padding: $espaciado-xxl $espaciado-md;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $espaciado-md;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: $espaciado-xxl;
+  }
+
+  &__section-title {
+    font-size: $fuente-size-h2;
+    color: $color-primario;
+    margin-bottom: $espaciado-lg;
+    text-align: center;
+    font-weight: $fuente-weight-bold;
+  }
+
+  &__estadisticas {
+    width: 100%;
+  }
+
+  &__tickets {
+    width: 100%;
+  }
+
+  @include responsive-tablet {
+    padding: $espaciado-lg $espaciado-md;
+  }
+
+  @include responsive-mobile {
+    padding: $espaciado-md;
+  }
+}
+
+// Estadísticas Grid
+.estadisticas-grid {
+  @include grid-responsive(3, $espaciado-lg);
+  margin-bottom: $espaciado-xxl;
+
+  @include responsive-tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $espaciado-md;
+  }
+
+  @include responsive-mobile {
+    grid-template-columns: 1fr;
+    gap: $espaciado-md;
+  }
+}
+
+// Tarjeta de Estadística
+.estadistica-card {
+  @include card;
+  text-align: center;
+  padding: $espaciado-lg;
+  background: linear-gradient(135deg, #e8f4f8 0%, #cce5ff 100%);
+  border-left: 4px solid $color-primario;
+
+  &__numero {
+    font-size: 36px;
+    font-weight: $fuente-weight-bold;
+    color: $color-primario;
+    margin-bottom: $espaciado-sm;
+  }
+
+  &__label {
+    font-size: 16px;
+    color: $color-texto;
+    font-weight: $fuente-weight-semibold;
+    margin-bottom: $espaciado-sm;
+  }
+
+  &__porcentaje {
+    font-size: 24px;
+    font-weight: $fuente-weight-bold;
+    color: $color-primario;
+    background-color: rgba($color-primario, 0.1);
+    padding: $espaciado-sm;
+    border-radius: $border-radius-md;
+  }
+
+  &--critico {
+    background: linear-gradient(135deg, #ffe8e8 0%, #ffcccc 100%);
+    border-left-color: $color-error;
+
+    .estadistica-card__numero,
+    .estadistica-card__porcentaje {
+      color: $color-error;
+    }
+  }
+
+  &--resuelto {
+    background: linear-gradient(135deg, #e8f8e8 0%, #ccffcc 100%);
+    border-left-color: $color-exito;
+
+    .estadistica-card__numero,
+    .estadistica-card__porcentaje {
+      color: $color-exito;
+    }
+  }
+}
+
+// Gráfico de Estadísticas
+.estadisticas-chart {
+  @include card;
+  margin-top: $espaciado-xxl;
+  padding: $espaciado-lg;
+
+  &__title {
+    text-align: center;
+    font-size: $fuente-size-h3;
+    color: $color-primario;
+    margin-bottom: $espaciado-lg;
+  }
+}
+
+.chart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $espaciado-lg;
+  align-items: center;
+
+  @include responsive-tablet {
+    grid-template-columns: 1fr;
+    gap: $espaciado-md;
+  }
+
+  @include responsive-mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pie-chart {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  justify-self: center;
+}
+
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: $espaciado-md;
+  padding: $espaciado-md;
+  background-color: rgba($color-secundario, 0.3);
+  border-radius: $border-radius-md;
+}
+
+.legend-item {
+  @include flex-between;
+  align-items: center;
+  gap: $espaciado-md;
+  font-size: 14px;
+  color: $color-texto;
+
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: $border-radius-sm;
+    flex-shrink: 0;
+  }
+}
+
+// Contenedor de Tickets
+.tickets-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $espaciado-xxl;
+
+  @include responsive-tablet {
+    grid-template-columns: 1fr;
+    gap: $espaciado-lg;
+  }
+
+  @include responsive-mobile {
+    grid-template-columns: 1fr;
+    gap: $espaciado-lg;
+  }
+}
+
+// Sección de Tickets
+.tickets-section {
+  @include card;
+  padding: $espaciado-lg;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: $espaciado-md;
+    font-size: $fuente-size-h2;
+    color: $color-primario;
+    margin-bottom: $espaciado-lg;
+    font-weight: $fuente-weight-bold;
+  }
+
+  &__count {
+    display: inline-flex;
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    background-color: $color-primario;
+    color: $color-blanco;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: $fuente-weight-bold;
+  }
+}
+
+// Grid de Tickets
+.tickets-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $espaciado-md;
+
+  @include responsive-desktop {
+    grid-template-columns: 1fr;
+  }
+
+  @include responsive-tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include responsive-mobile {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,41 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.auth-page {
+  min-height: calc(100vh - 200px);
+  @include flex-center;
+  padding: $espaciado-xxl $espaciado-md;
+
+  .auth-container {
+    background-color: $color-blanco;
+    padding: $espaciado-xxl;
+    border-radius: $border-radius-lg;
+    box-shadow: $sombra-lg;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      color: $color-primario;
+      margin-bottom: $espaciado-lg;
+    }
+
+    p {
+      color: $color-texto-claro;
+      margin-bottom: $espaciado-lg;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: $espaciado-md;
+    }
+  }
+
+  @include responsive-mobile {
+    padding: $espaciado-md;
+
+    .auth-container {
+      padding: $espaciado-lg;
+    }
+  }
+}
