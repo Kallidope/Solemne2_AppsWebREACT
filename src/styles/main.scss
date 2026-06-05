@@ -1,139 +1,64 @@
-@import './variables';
-@import './mixins';
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: $fuente-base;
-  font-size: $fuente-size-base;
-  color: $color-texto;
-  background-color: $color-fondo;
-  line-height: 1.6;
+  background-color: #0066cc; // Fondo azul intenso
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  height: 100vh;
 }
 
-#root {
+.dashboard-layout {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 25px;
+  padding: 30px;
+  height: 100vh;
 
-  @include responsive-desktop {
-    grid-template-columns: 1fr;
+  .main-header {
+    grid-column: span 2;
+    background-color: #e3f2fd; // Celeste claro y suave
+    padding: 20px 40px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+
+    .logo-container { height: 70px; }
+    .nav-center { display: flex; gap: 40px; a { text-decoration: none; color: #004488; font-weight: bold; } }
+    .user-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; font-size: 0.85rem; a { color: #004488; text-decoration: none; font-weight: bold; } }
+  }
+
+  .ticket-section {
+    background-color: #e3f2fd; // Celeste claro y suave
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    h2 { color: #004488; margin-bottom: 20px; font-size: 1.2rem; }
+    .metrica { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; color: #0055aa; }
+    ul { list-style: none; overflow-y: auto; li { padding: 10px 0; border-bottom: 1px solid #bbdefb; font-size: 0.9rem; } }
   }
 }
 
-// Reset de enlaces
-a {
-  color: $color-primario;
-  text-decoration: none;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: $color-primario-dark;
-  }
-
-  &:focus {
-    outline: 2px solid $color-primario;
-    outline-offset: 2px;
-  }
-}
-
-// Tipografías
-h1 {
-  font-size: $fuente-size-h1;
-  font-weight: $fuente-weight-bold;
-  margin-bottom: $espaciado-md;
-  color: $color-texto;
-}
-
-h2 {
-  font-size: $fuente-size-h2;
-  font-weight: $fuente-weight-bold;
-  margin-bottom: $espaciado-md;
-  color: $color-texto;
-}
-
-h3 {
-  font-size: $fuente-size-h3;
-  font-weight: $fuente-weight-semibold;
-  margin-bottom: $espaciado-sm;
-  color: $color-texto;
-}
-
-p {
-  color: $color-texto-claro;
-  margin-bottom: $espaciado-md;
-}
-
-// Botones globales
-button {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-.btn-primario {
-  @include btn-primario;
-}
-
-.btn-secundario {
-  @include btn-secundario;
-}
-
-// Contenedores
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 $espaciado-md;
-}
-
-// Utilidades
-.mt-1 { margin-top: $espaciado-sm; }
-.mt-2 { margin-top: $espaciado-md; }
-.mt-3 { margin-top: $espaciado-lg; }
-
-.mb-1 { margin-bottom: $espaciado-sm; }
-.mb-2 { margin-bottom: $espaciado-md; }
-.mb-3 { margin-bottom: $espaciado-lg; }
-
-.p-1 { padding: $espaciado-sm; }
-.p-2 { padding: $espaciado-md; }
-.p-3 { padding: $espaciado-lg; }
-
-// Accesibilidad
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.app-header {
-  grid-area: header;
-  background-color: $color-secundario;
-  padding: 20px 40px;
+.stats-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-
-  
-  .app-logo {
-    height: 80px;      // Puedes subir o bajar este valor a tu gusto (ej. 60px, 100px)
-    width: auto;       // Mantiene la proporción original de la imagen
-    max-width: 200px;  // Pone un límite máximo por si la pantalla es muy pequeña
-    object-fit: contain; 
+  .donut-chart {
+    margin: 20px 0;
+    .chart-circle {
+      width: 150px; height: 150px; border-radius: 50%;
+      background: conic-gradient(#2ecc71 0% 20%, #3498db 20% 60%, #f1c40f 60% 100%);
+      position: relative;
+      &::after {
+        content: ""; width: 100px; height: 100px; background: #e3f2fd; // Ajuste al color nuevo
+        border-radius: 50%; position: absolute; top: 25px; left: 25px;
+      }
+    }
   }
+  .legend { font-size: 0.9rem; color: #004488; line-height: 1.5; }
 }
