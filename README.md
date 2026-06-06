@@ -17,7 +17,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Librerias necesarias
 npm install react-router-dom
-npm install -D sass-embedded
+
+  npm install -D sass-embedded
 
 ## En caso del error
 -"vite" no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable-
