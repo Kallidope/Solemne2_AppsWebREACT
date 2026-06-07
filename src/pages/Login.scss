@@ -1,41 +1,284 @@
-@import '../styles/variables';
-@import '../styles/mixins';
+$azul: #0b63ce;
+$fondo: #f2f4f8;
+$texto: #1f2937;
+$gris: #6b7280;
+$borde: #d9e2ef;
+$blanco: #fff;
 
-.auth-page {
-  min-height: calc(100vh - 200px);
-  @include flex-center;
-  padding: $espaciado-xxl $espaciado-md;
+.home-page {
+  min-height: 75vh;
+  background: $fondo;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px;
+}
 
-  .auth-container {
-    background-color: $color-blanco;
-    padding: $espaciado-xxl;
-    border-radius: $border-radius-lg;
-    box-shadow: $sombra-lg;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+/* ingreso */
 
-    h1 {
-      color: $color-primario;
-      margin-bottom: $espaciado-lg;
-    }
+.contenedor {
+  width: 100%;
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: 78% 22%;
+  align-items: center;
+}
 
-    p {
-      color: $color-texto-claro;
-      margin-bottom: $espaciado-lg;
-    }
+.panel-blanco {
+  background: $blanco;
+  min-height: 390px;
+  padding: 45px;
+  border: 1px solid $borde;
+  border-radius: 8px;
+  z-index: 2;
+}
 
-    a {
-      display: inline-block;
-      margin-top: $espaciado-md;
-    }
+.panel-azul {
+  background: $azul;
+  min-height: 530px;
+  border-radius: 8px;
+  margin-left: -18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.texto-azul {
+  color: white;
+  text-align: center;
+}
+
+.texto-azul h2 {
+  color: white;
+}
+
+.texto-azul p {
+  color: white;
+}
+
+.texto-azul h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.texto-azul p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.titulo h1 {
+  font-size: 38px;
+  color: $texto;
+}
+
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-card {
+  width: 100%;
+  background: $blanco;
+  border: 1px solid $borde;
+  border-left: 6px solid $azul;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.home-card h2 {
+  color: $texto;
+  font-size: 20px;
+}
+
+.home-card p {
+  color: $gris;
+  margin-top: 4px;
+}
+
+.ayuda {
+  display: block;
+  margin: 25px auto 0;
+  border: none;
+  background: transparent;
+  color: $azul;
+  cursor: pointer;
+}
+
+/* usuario */
+
+.ticket-panel {
+  width: 100%;
+  max-width: 1080px;
+  background: $blanco;
+  border: 1px solid $borde;
+  padding: 22px;
+}
+
+.ticket-header {
+  background: $azul;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 15px;
+  padding: 14px;
+  margin-bottom: 22px;
+}
+
+.perfil h2 {
+  color: white;
+  font-size: 22px;
+}
+
+.perfil p {
+  color: white;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.estado-header {
+  background: white;
+  color: $texto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 12px;
+  gap: 10px;
+  text-align: center;
+}
+
+.estado-header p {
+  color: $gris;
+  margin-top: 5px;
+}
+
+.ticket-body {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 22px;
+}
+
+.menu-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.menu-lateral button {
+  background: white;
+  border: 1px solid $borde;
+  border-left: 6px solid $azul;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  font-weight: bold;
+  color: $texto;
+}
+
+.menu-lateral button:hover {
+  background: #f5f8ff;
+}
+
+.contenido {
+  background: white;
+}
+
+.formulario,
+.registro,
+.ayuda-box {
+  border: 1px solid $borde;
+  padding: 22px;
+  max-width: 720px;
+}
+
+.formulario h3,
+.registro h3,
+.ayuda-box h3 {
+  color: $texto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.formulario p,
+.ayuda-box p {
+  color: $gris;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+label {
+  display: block;
+  color: $texto;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  background: white;
+  color: $texto;
+  border: 1px solid $borde;
+  padding: 9px;
+  font-family: Arial, sans-serif;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.acciones button {
+  padding: 9px 14px;
+  border: 1px solid $borde;
+  cursor: pointer;
+}
+
+.acciones .crear {
+  background: $azul;
+  color: white;
+}
+
+.registro article {
+  border: 1px solid $borde;
+  padding: 14px;
+  margin-top: 14px;
+  text-align: center;
+}
+
+.registro span,
+.registro small {
+  display: block;
+  color: $gris;
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .contenedor,
+  .ticket-header,
+  .ticket-body,
+  .estado-header,
+  .fila {
+    grid-template-columns: 1fr;
   }
 
-  @include responsive-mobile {
-    padding: $espaciado-md;
-
-    .auth-container {
-      padding: $espaciado-lg;
-    }
+  .panel-azul {
+    display: none;
   }
 }
